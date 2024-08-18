@@ -34,13 +34,13 @@ def crear_imagen_partido(fondo, escudo_local, escudo_visitante, nombre_torneo, f
 
     # Agregar el nombre del torneo a la imagen
     draw = ImageDraw.Draw(fondo)
-    font_torneo = ImageFont.truetype("LiberationSans-Bold.ttf", 70)  # Asegúrate de tener la fuente disponible
+    font_torneo = ImageFont.truetype("DejaVuSans.ttf", 70)  # Asegúrate de tener la fuente disponible
     text_width, text_height = draw.textsize(nombre_torneo, font=font_torneo)
     text_position = ((fondo.width - text_width) // 2, 50)
     draw.text(text_position, nombre_torneo, font=font_torneo, fill=(255, 255, 255))
 
     # Agregar la fecha del partido a la imagen
-    font_fecha = ImageFont.truetype("LiberationSans-Bold.ttf", 55)  # Asegúrate de tener la fuente disponible
+    font_fecha = ImageFont.truetype("DejaVuSans.ttf", 55)  # Asegúrate de tener la fuente disponible
     text_width, text_height = draw.textsize(fecha_partido, font=font_fecha)
     text_position = ((fondo.width - text_width) // 2, fondo.height - text_height - 100)
     draw.text(text_position, fecha_partido, font=font_fecha, fill=(255, 255, 255))
