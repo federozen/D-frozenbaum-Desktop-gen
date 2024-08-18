@@ -72,12 +72,17 @@ def main():
       fecha_partido = st.text_input("Ingrese la fecha del partido (ej. 25 de Agosto): ")
 
       if st.button("Generar imagen"):
-        imagen_partido = crear_imagen_partido(fondo, escudo_local, escudo_visitante, nombre_torneo, fecha_partido)
-
+    imagen_partido = crear_imagen_partido(fondo, escudo_local, escudo_visitante, nombre_torneo, fecha_partido)
         if imagen_partido is not None:
-          # Mostrar la imagen
-          st.image(imagen_partido, caption="Imagen generada", use_column_width=True)
-
+        # Mostrar la imagen
+        st.image(imagen_partido, caption="Imagen generada", use_column_width=True)
+        # Descargar la imagen
+        buffer = io.BytesIO()
+        imagen_partido.save(buffer, format='JPEG')
+        buffer.seek(0)
+        st.download_button("Descargar imagen", data=buffer, file_name="partido.jpg", mime="image/jpeg")
+           
+     
           # Descargar la imagen
           buffer = io.BytesIO()
           imagen_partido.save(buffer, format='JPEG')
